@@ -13,12 +13,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var coolTable: UITableView!
     
-    var lunchItems=["badin bowl","bosco sticks","cheese burger","chicken nuggets","chicken wrap wuth lettuce and cheese","chili cheese coney","fish sandwich","fries","hotdog","pizza"]
+    var lunchItems=["badin bowl","bosco sticks","cheese burger","chicken nuggets","chicken wrap with lettuce and cheese","chili cheese coney","fish sandwich","fries","hotdog","pizza"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        coolTable.dataSource=self
+        coolTable.delegate=self
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,6 +36,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Segue", sender: "Price of Items")
+    }
     
     
     
